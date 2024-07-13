@@ -1713,7 +1713,8 @@ EOF;
             $categorySelect->where('slug = ?', $directory[count($directory) - 1]);
         }
 
-        $category = MetasFrom::allocWithAlias('category:' . $this->cid, [
+        $category = MetasFrom::allocWithAlias('category:' . $this->request->filter('int')->get('mid'), [
+        // $category = MetasFrom::allocWithAlias('category:' . $this->cid, [
             'query' => $categorySelect
         ]);
 
